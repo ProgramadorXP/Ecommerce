@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 import {
   Home,
   ShoppingCart,
@@ -11,6 +9,7 @@ import {
   ChartLine,
   Settings,
 } from "lucide-react";
+import NavLinkItem from "@/components/NavLinkItem";
 
 const links = [
   {
@@ -54,27 +53,16 @@ export default function NavLinks({
 
   return (
     <>
-      {links.map((link) => {
-        const LinkIcon = link.icon;
-
-        return (
-          <Link
-            key={link.text}
-            href={link.href}
-            onClick={onLinkClick}
-            className={clsx(
-              "flex items-center gap-3 px-8 py-4 border-transparent border-l-4 hover:text-primary",
-              {
-                "from-primary/20 to-primary/5 bg-linear-to-r border-l-primary text-primary":
-                  pathname === link.href,
-              }
-            )}
-          >
-            <LinkIcon size={20} />
-            <span className="text-sm">{link.text}</span>
-          </Link>
-        );
-      })}
+      {links.map((link) => (
+        <NavLinkItem
+          key={link.text}
+          href={link.href}
+          icon={link.icon}
+          text={link.text}
+          isActive={pathname === link.href}
+          onClick={onLinkClick}
+        />
+      ))}
     </>
   );
 }
