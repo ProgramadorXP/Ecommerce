@@ -1,1 +1,96 @@
 @import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-primary: rgb(var(--primary));
+  --color-secondary: rgb(var(--secondary));
+  --color-accent: rgb(var(--accent));
+
+  /* UI Colors */
+  --color-background: rgb(var(--background));
+  --color-surface: rgb(var(--surface));
+  --color-border: rgb(var(--border));
+
+  /* Text Colors */
+  --color-text-primary: rgb(var(--text-primary));
+  --color-text-secondary: rgb(var(--text-secondary));
+  --color-text-muted: rgb(var(--text-muted));
+
+  /* Status Colors */
+  --color-success: rgb(var(--success));
+  --color-warning: rgb(var(--warning));
+  --color-error: rgb(var(--error));
+  --color-info: rgb(var(--info));
+
+  /* Custom Gradients */
+  --background-image-vendix: linear-gradient(
+    135deg,
+    rgb(var(--secondary)),
+    rgb(var(--primary)),
+    rgb(var(--accent))
+  );
+}
+
+/* =========================
+   Vendix – Light Mode
+   ========================= */
+:root {
+  /* Brand */
+  --primary: 90 110 255; /* #5A6EFF */
+  --secondary: 125 76 255; /* #7D4CFF */
+  --accent: 36 218 196; /* #24DAC4 */
+
+  /* Backgrounds */
+  --background: 246 246 246; /* #F6F6F6 */
+  --surface: 248 250 252; /* #F8FAFC */
+  --border: 226 232 240; /* #E2E8F0 */
+
+  /* Text */
+  --text-primary: 15 23 42; /* #0F172A */
+  --text-secondary: 71 85 105; /* #475569 */
+  --text-muted: 148 163 184; /* #94A3B8 */
+
+  /* Status */
+  --success: 34 197 94; /* #22C55E */
+  --warning: 250 204 21; /* #FACC15 */
+  --error: 239 68 68; /* #EF4444 */
+  --info: 56 189 248; /* #38BDF8 */
+}
+
+/* =========================
+   Vendix – Dark Mode
+   ========================= */
+.dark {
+  /* Brand */
+  --primary: 122 162 255; /* #7AA2FF */
+  --secondary: 159 123 255; /* #9F7BFF */
+  --accent: 36 218 196; /* #24DAC4 */
+
+  /* Backgrounds */
+  --background: 2 6 23; /* #020617 */
+  --surface: 2 6 23; /* #020617 */
+  --border: 30 41 59; /* #1E293B */
+
+  /* Text */
+  --text-primary: 248 250 252; /* #F8FAFC */
+  --text-secondary: 203 213 225; /* #CBD5E1 */
+  --text-muted: 100 116 139; /* #64748B */
+
+  /* Status */
+  --success: 34 197 94;
+  --warning: 250 204 21;
+  --error: 239 68 68;
+  --info: 56 189 248;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+  }
+}
