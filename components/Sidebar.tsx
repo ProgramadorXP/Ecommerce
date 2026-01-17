@@ -23,10 +23,6 @@ export default function Sidebar({
         <Logo size="lg" />
       </div>
 
-      <div className="px-6 md:hidden shrink-0">
-        <SearchInput />
-      </div>
-
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto">
         <ul>
@@ -35,6 +31,11 @@ export default function Sidebar({
           </li>
         </ul>
       </nav>
+
+      {/* Search Input */}
+      <div className="px-6 py-4 md:hidden border-t border-border/50">
+        <SearchInput />
+      </div>
 
       {/* Mobile User Profile */}
       <div className="p-4 border-t border-border md:hidden shrink-0 bg-card/50 backdrop-blur-sm">
