@@ -1,14 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import {
-  Home,
-  ShoppingCart,
-  Box,
-  Users,
-  ChartLine,
-  Settings,
-} from "lucide-react";
+import { Home, ShoppingCart, Box, Users, ChartLine } from "lucide-react";
 import NavLinkItem from "@/components/NavLinkItem";
 
 const links = [
