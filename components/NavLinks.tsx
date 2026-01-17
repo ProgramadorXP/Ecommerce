@@ -37,11 +37,6 @@ const links = [
     icon: ChartLine,
     text: "Analytics",
   },
-  {
-    href: "/dashboard/settings",
-    icon: Settings,
-    text: "Settings",
-  },
 ];
 
 export default function NavLinks({
