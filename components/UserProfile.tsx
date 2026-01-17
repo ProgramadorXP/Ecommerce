@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, User, Settings, CreditCard } from "lucide-react";
+import { LogOut, User, Settings } from "lucide-react";
 
 interface UserProfileProps {
   name?: string;
@@ -70,15 +71,15 @@ export default function UserProfile({
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <User className="mr-2 h-4 w-4" />
-            <span>Profile</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCard className="mr-2 h-4 w-4" />
-            <span>Billing</span>
+            <Link className="w-full" href="/dashboard/profile">
+              Profile
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
+            <Link className="w-full" href="/dashboard/settings">
+              Settings
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem className="text-error focus:text-error">
