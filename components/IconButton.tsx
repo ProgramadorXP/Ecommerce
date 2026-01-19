@@ -26,7 +26,7 @@ export default function IconButton({
       onClick={onClick}
       title={title}
       className={clsx(
-        "relative flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary hover:bg-background transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/20",
+        "relative flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary hover:bg-background transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary/20",
         className,
       )}
     >
