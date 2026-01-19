@@ -1,11 +1,12 @@
 "use client";
 
-import { Bell, Menu, Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Logo from "@/components/Logo";
 import SearchInput from "@/components/SearchInput";
 import IconButton from "@/components/IconButton";
 import UserProfile from "@/components/UserProfile";
+import NotificationMenu from "@/components/NotificationMenu";
 
 export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
   const { setTheme, resolvedTheme } = useTheme();
@@ -33,16 +34,7 @@ export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
         </IconButton>
 
         {/* Notifications */}
-        <IconButton
-          icon={Bell}
-          title="Notifications"
-          badge={
-            <span className="absolute top-2.5 right-2.5 flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
-            </span>
-          }
-        />
+        <NotificationMenu />
 
         {/* Desktop Profile Avatar */}
         <UserProfile initials="JD" className="hidden md:flex" />
