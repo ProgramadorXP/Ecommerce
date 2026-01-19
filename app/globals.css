@@ -65,7 +65,7 @@
   --vendix-accent: 36 218 196; /* #24DAC4 (Teal) */
 
   /* UI Elements (Shadcn) */
-  --background: 246 246 246; /* #F6F6F6 */
+  --background: 241 245 249; /* #F1F5F9 - Slightly more gray for depth */
   --foreground: 15 23 42; /* #0F172A */
   --card: 255 255 255;
   --card-foreground: 15 23 42;
@@ -73,10 +73,10 @@
   --popover-foreground: 15 23 42;
   --border: 226 232 240; /* #E2E8F0 */
   --input: 226 232 240;
-  --ring: 90 110 255; /* Usar primary para el ring */
+  --ring: 90 110 255;
 
   /* States & Muted */
-  --accent: 241 245 249; /* Hovers sutiles */
+  --accent: 241 245 249;
   --accent-foreground: 15 23 42;
   --muted: 241 245 249;
   --muted-foreground: 71 85 105;
@@ -97,24 +97,24 @@
      ========================= */
 
   /* Brand */
-  --primary: 122 162 255; /* #7AA2FF (Más claro para dark) */
+  --primary: 122 162 255; /* #7AA2FF */
   --primary-foreground: 15 23 42;
   --secondary: 159 123 255; /* #9F7BFF */
   --secondary-foreground: 255 255 255;
 
   /* UI Elements */
-  --background: 2 6 23; /* #020617 */
+  --background: 2 6 23; /* #020617 - Deep Black */
   --foreground: 248 250 252;
-  --card: 2 6 23;
+  --card: 15 23 42; /* #0F172A - Slightly Lighter for depth */
   --card-foreground: 248 250 252;
-  --popover: 2 6 23;
+  --popover: 15 23 42;
   --popover-foreground: 248 250 252;
   --border: 30 41 59; /* #1E293B */
   --input: 30 41 59;
   --ring: 122 162 255;
 
   /* States & Muted */
-  --accent: 30 41 59; /* Hover oscuro sutil */
+  --accent: 30 41 59;
   --accent-foreground: 248 250 252;
   --muted: 30 41 59;
   --muted-foreground: 148 163 184;

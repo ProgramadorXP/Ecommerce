@@ -1,40 +1,36 @@
 "use client";
 
-import { useState } from "react";
 import { Bell, Menu, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Logo from "@/components/Logo";
 import SearchInput from "@/components/SearchInput";
 import IconButton from "@/components/IconButton";
 import UserProfile from "@/components/UserProfile";
 
 export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
-  const [isLight, setIsLight] = useState(true);
-
-  const toggleIcon = () => {
-    setIsLight(!isLight);
-  };
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b border-border bg-white px-4 backdrop-blur-md md:px-6">
-      {/* Left Section: Mobile Logo & Desktop Search */}
+    <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b border-border bg-card/80 px-4 backdrop-blur-md md:px-6">
+      {/* Left Section */}
       <div className="flex items-center gap-4 flex-1">
-        {/* Mobile Logo & Brand */}
         <Logo className="md:hidden" />
-
-        {/* Desktop Search Bar */}
         <div className="hidden md:block w-64 lg:w-80">
           <SearchInput />
         </div>
       </div>
 
-      {/* Right Section: Actions & Menu */}
+      {/* Right Section */}
       <div className="flex items-center gap-2 md:gap-4">
-        {/* Dark Mode Toggle */}
+        {/* Dark Mode Toggle (Documentation Style) */}
         <IconButton
-          onClick={toggleIcon}
-          icon={isLight ? Sun : Moon}
-          title={isLight ? "Switch to Dark Mode" : "Switch to Light Mode"}
-        />
+          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+          title="Toggle theme"
+        >
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </IconButton>
 
         {/* Notifications */}
         <IconButton
