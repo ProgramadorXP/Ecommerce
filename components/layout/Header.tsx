@@ -2,11 +2,11 @@
 
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Logo from "@/components/Logo";
-import SearchInput from "@/components/SearchInput";
-import IconButton from "@/components/IconButton";
-import UserProfile from "@/components/UserProfile";
-import NotificationMenu from "@/components/NotificationMenu";
+import Logo from "@/components/common/Logo";
+import SearchInput from "@/components/common/SearchInput";
+import IconButton from "@/components/common/IconButton";
+import UserProfile from "@/components/layout/UserProfile";
+import NotificationMenu from "@/components/layout/NotificationMenu";
 
 export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
   const { setTheme, resolvedTheme } = useTheme();

@@ -1,7 +1,7 @@
-import NavLinks from "@/components/NavLinks";
-import Logo from "@/components/Logo";
-import SearchInput from "@/components/SearchInput";
-import UserProfile from "@/components/UserProfile";
+import NavLinks from "@/components/layout/NavLinks";
+import Logo from "@/components/common/Logo";
+import SearchInput from "@/components/common/SearchInput";
+import UserProfile from "@/components/layout/UserProfile";
 import clsx from "clsx";
 
 export default function Sidebar({

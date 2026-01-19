@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Home, ShoppingCart, Box, Users, ChartLine } from "lucide-react";
-import NavLinkItem from "@/components/NavLinkItem";
+import NavLinkItem from "@/components/layout/NavLinkItem";
 
 const links = [
   {

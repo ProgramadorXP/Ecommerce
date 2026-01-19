@@ -1,7 +1,7 @@
 "use client";
 
 import { Bell } from "lucide-react";
-import IconButton from "@/components/IconButton";
+import IconButton from "@/components/common/IconButton";
 import {
   DropdownMenu,
   DropdownMenuContent,
