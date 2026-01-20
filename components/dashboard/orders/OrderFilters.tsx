@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import SearchInput from "@/components/common/SearchInput";
 import IconButton from "@/components/common/IconButton";
-import { OrderStatus } from "./types";
+import { OrderStatus } from "@/components/dashboard/orders/types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
