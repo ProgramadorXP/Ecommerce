@@ -3,72 +3,7 @@
 import { MoreVertical } from "lucide-react";
 import IconButton from "@/components/common/IconButton";
 
-const recentOrders = [
-  {
-    id: "#ORD-1234",
-    customer: "John Doe",
-    email: "john@example.com",
-    amount: "$240.00",
-    status: "paid",
-    date: "2 mins ago",
-  },
-  {
-    id: "#ORD-1235",
-    customer: "Sarah Smith",
-    email: "sarah@smith.com",
-    amount: "$1,200.00",
-    status: "pending",
-    date: "1 hour ago",
-  },
-  {
-    id: "#ORD-1236",
-    customer: "Michael Brown",
-    email: "m.brown@dev.com",
-    amount: "$89.99",
-    status: "shipped",
-    date: "3 hours ago",
-  },
-  {
-    id: "#ORD-1237",
-    customer: "Emma Watson",
-    email: "emma@star.com",
-    amount: "$450.00",
-    status: "delivered",
-    date: "5 hours ago",
-  },
-  {
-    id: "#ORD-1238",
-    customer: "Robert Fox",
-    email: "robert@fox.com",
-    amount: "$120.00",
-    status: "cancelled",
-    date: "Yesterday",
-  },
-  {
-    id: "#ORD-1239",
-    customer: "Emma Watson",
-    email: "emma@star.com",
-    amount: "$450.00",
-    status: "delivered",
-    date: "5 hours ago",
-  },
-  {
-    id: "#ORD-1240",
-    customer: "Emma Watson",
-    email: "emma@star.com",
-    amount: "$450.00",
-    status: "delivered",
-    date: "5 hours ago",
-  },
-  {
-    id: "#ORD-1241",
-    customer: "Emma Watson",
-    email: "emma@star.com",
-    amount: "$450.00",
-    status: "delivered",
-    date: "5 hours ago",
-  },
-];
+import { RECENT_ORDERS } from "@/data/dashboard/overview";
 
 export default function OrdersTable() {
   return (
@@ -100,7 +35,7 @@ export default function OrdersTable() {
             </tr>
           </thead>
           <tbody className="divide-y divide-border">
-            {recentOrders.map((order) => (
+            {RECENT_ORDERS.map((order) => (
               <tr
                 key={order.id}
                 className="group hover:bg-background/50 transition-colors"

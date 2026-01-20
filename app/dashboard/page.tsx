@@ -1,52 +1,12 @@
 import { ArrowUpRight, Calendar } from "lucide-react";
-import StatCard, { IconType } from "@/components/dashboard/StatCard";
+import StatCard from "@/components/dashboard/StatCard";
 import OrdersTable from "@/components/dashboard/OrdersTable";
 import RevenueChart from "@/components/dashboard/RevenueChart";
 import TopProducts from "@/components/dashboard/TopProducts";
 import RecentReviews from "@/components/dashboard/RecentReviews";
 import DiscountStatus from "@/components/dashboard/DiscountStatus";
 
-const stats: {
-  label: string;
-  value: string;
-  change: string;
-  trend: "up" | "down";
-  iconName: IconType;
-  color: string;
-}[] = [
-  {
-    label: "Total Revenue",
-    value: "$12,450.00",
-    change: "+12.5%",
-    trend: "up",
-    iconName: "revenue",
-    color: "text-success",
-  },
-  {
-    label: "Total Orders",
-    value: "156",
-    change: "+8.2%",
-    trend: "up",
-    iconName: "orders",
-    color: "text-primary",
-  },
-  {
-    label: "Active Products",
-    value: "42",
-    change: "-2.4%",
-    trend: "down",
-    iconName: "products",
-    color: "text-secondary",
-  },
-  {
-    label: "New Customers",
-    value: "1,240",
-    change: "+18.1%",
-    trend: "up",
-    iconName: "customers",
-    color: "text-vendix-accent",
-  },
-];
+import { DASHBOARD_STATS } from "@/data/dashboard/overview";
 
 export default function DashboardPage() {
   return (
@@ -76,7 +36,7 @@ export default function DashboardPage() {
 
       {/* Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
+        {DASHBOARD_STATS.map((stat) => (
           <StatCard key={stat.label} {...stat} />
         ))}
       </div>
