@@ -3,18 +3,8 @@
 import { Filter, LayoutGrid, AlertTriangle, XCircle } from "lucide-react";
 import SearchInput from "@/components/common/SearchInput";
 import IconButton from "@/components/common/IconButton";
-import { StockStatus } from "./types";
-
-const CATEGORIES = [
-  "All",
-  "Apparel",
-  "Footwear",
-  "Accessories",
-  "Athletic",
-  "Travel",
-  "Luxury",
-  "Essentials",
-];
+import { StockStatus } from "@/components/dashboard/products/types";
+import { CATEGORIES } from "@/data/dashboard/products";
 
 interface InventoryFiltersProps {
   selectedCategory: string;
