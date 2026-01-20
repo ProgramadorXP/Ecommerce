@@ -32,6 +32,8 @@ export default function ProductsPage() {
     <div className="space-y-6 animate-in fade-in duration-500">
       <ProductHeader />
 
+      <InventorySummary />
+
       <InventoryFilters
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
@@ -40,8 +42,6 @@ export default function ProductsPage() {
       />
 
       <ProductTable products={filteredProducts} />
-
-      <InventorySummary />
     </div>
   );
 }

@@ -3,52 +3,92 @@
 import { ShoppingBag, TrendingUp, Clock, AlertCircle } from "lucide-react";
 
 export default function OrderSummary() {
+  const stats = [
+    {
+      label: "Total Orders",
+      value: "1,256",
+      change: "+12.5%",
+      trend: "up" as const,
+      icon: ShoppingBag,
+      color: "text-primary",
+      bgColor: "to-primary/50",
+      hoverBorder: "hover:border-primary/50",
+      shadow: "hover:shadow-primary/5",
+    },
+    {
+      label: "Average Value",
+      value: "$210.50",
+      change: "+3.2%",
+      trend: "up" as const,
+      icon: TrendingUp,
+      color: "text-success",
+      bgColor: "to-primary/50",
+      hoverBorder: "hover:border-primary/50",
+      shadow: "hover:shadow-primary/5",
+    },
+    {
+      label: "Pending Approval",
+      value: "24",
+      change: "-2",
+      trend: "down" as const,
+      icon: Clock,
+      color: "text-warning",
+      bgColor: "to-primary/50",
+      hoverBorder: "hover:border-primary/50",
+      shadow: "hover:shadow-primary/5",
+    },
+    {
+      label: "Cancelled Recent",
+      value: "5",
+      change: "+12%",
+      trend: "up" as const,
+      icon: AlertCircle,
+      color: "text-error",
+      bgColor: "to-primary/50",
+      hoverBorder: "hover:border-primary/50",
+      shadow: "hover:shadow-primary/5",
+    },
+  ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div className="p-5 bg-card border border-border rounded-2xl flex items-center gap-4 shadow-sm group hover:border-primary/50 transition-all cursor-pointer">
-        <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-          <ShoppingBag className="h-6 w-6 text-primary" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {stats.map((stat) => (
+        <div
+          key={stat.label}
+          className={`group p-5 bg-card border border-border rounded-2xl transition-all cursor-pointer relative overflow-hidden bg-linear-to-br from-card via-card ${stat.bgColor} ${stat.hoverBorder} hover:shadow-xl ${stat.shadow}`}
+        >
+          {/* Background decorative icon */}
+          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <stat.icon className="h-24 w-24" />
+          </div>
+
+          <div className="flex items-center justify-between mb-3">
+            <div
+              className={`p-2 rounded-xl bg-background border border-border ${stat.color}`}
+            >
+              <stat.icon className="h-5 w-5" />
+            </div>
+            <span
+              className={`text-xs font-bold px-2 py-1 rounded-full ${
+                stat.trend === "up"
+                  ? "bg-success/10 text-success"
+                  : "bg-error/10 text-error"
+              }`}
+            >
+              {stat.change}
+            </span>
+          </div>
+
+          <div className="space-y-1">
+            <p className="text-xs font-medium text-text-muted uppercase tracking-wider">
+              {stat.label}
+            </p>
+            <h3 className="text-2xl font-bold text-text-primary tracking-tight">
+              {stat.value}
+            </h3>
+          </div>
         </div>
-        <div>
-          <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider">
-            Total Orders
-          </p>
-          <h4 className="text-xl font-black text-text-primary">1,256</h4>
-        </div>
-      </div>
-      <div className="p-5 bg-card border border-border rounded-2xl flex items-center gap-4 shadow-sm group hover:border-success/50 transition-all cursor-pointer">
-        <div className="h-12 w-12 rounded-xl bg-success/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-          <TrendingUp className="h-6 w-6 text-success" />
-        </div>
-        <div>
-          <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider">
-            Average Value
-          </p>
-          <h4 className="text-xl font-black text-text-primary">$210.50</h4>
-        </div>
-      </div>
-      <div className="p-5 bg-card border border-border rounded-2xl flex items-center gap-4 shadow-sm group hover:border-warning/50 transition-all cursor-pointer">
-        <div className="h-12 w-12 rounded-xl bg-warning/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-          <Clock className="h-6 w-6 text-warning" />
-        </div>
-        <div>
-          <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider">
-            Pending Approval
-          </p>
-          <h4 className="text-xl font-black text-text-primary">24 Orders</h4>
-        </div>
-      </div>
-      <div className="p-5 bg-card border border-border rounded-2xl flex items-center gap-4 shadow-sm group hover:border-error/50 transition-all cursor-pointer">
-        <div className="h-12 w-12 rounded-xl bg-error/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-          <AlertCircle className="h-6 w-6 text-error" />
-        </div>
-        <div>
-          <p className="text-[10px] font-bold text-text-muted uppercase tracking-wider">
-            Cancelled Recent
-          </p>
-          <h4 className="text-xl font-black text-text-primary">5 Orders</h4>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }

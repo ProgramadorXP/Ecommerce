@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  X,
   Package,
   Truck,
   CreditCard,
@@ -11,8 +10,15 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
-import IconButton from "@/components/common/IconButton";
 import { Order } from "@/components/dashboard/orders/types";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 interface OrderDetailsModalProps {
   order: Order | null;
@@ -25,7 +31,7 @@ export default function OrderDetailsModal({
   isOpen,
   onClose,
 }: OrderDetailsModalProps) {
-  if (!order || !isOpen) return null;
+  if (!order) return null;
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
@@ -55,34 +61,33 @@ export default function OrderDetailsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col">
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-3xl p-0 overflow-hidden border-border rounded-3xl shadow-2xl">
         {/* Header */}
-        <div className="p-6 border-b border-border flex items-center justify-between bg-muted/30">
-          <div>
-            <div className="flex items-center gap-3 mb-1">
-              <h2 className="text-xl font-black text-text-primary">
+        <DialogHeader className="p-6 border-b border-border bg-muted/30">
+          <div className="flex flex-col gap-1 text-left">
+            <div className="flex items-center gap-3">
+              <DialogTitle className="text-xl font-black text-text-primary">
                 Order #ORD-{order.id}
-              </h2>
-              <span
-                className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${getStatusStyles(order.status)}`}
+              </DialogTitle>
+              <Badge
+                variant="outline"
+                className={cn(
+                  "px-2.5 py-0.5 font-black uppercase tracking-wider border",
+                  getStatusStyles(order.status),
+                )}
               >
                 {order.status}
-              </span>
+              </Badge>
             </div>
             <p className="text-xs text-text-muted flex items-center gap-1.5">
               <Calendar className="h-3 w-3" />
               Placed on {formatDate(order.createdAt)}
             </p>
           </div>
-          <IconButton
-            icon={X}
-            onClick={onClose}
-            className="hover:bg-error/10 hover:text-error transition-colors"
-          />
-        </div>
+        </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto p-6 space-y-8">
+        <div className="overflow-y-auto max-h-[70vh] p-6 space-y-8">
           {/* Top Section: Customer & Shipping */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Customer Info */}
@@ -94,7 +99,7 @@ export default function OrderDetailsModal({
                 </h4>
               </div>
               <div className="p-4 bg-muted/20 border border-border rounded-2xl flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg shrink-0">
                   {order.userName
                     .split(" ")
                     .map((n) => n[0])
@@ -112,7 +117,7 @@ export default function OrderDetailsModal({
               </div>
             </div>
 
-            {/* Shipping Address (Mocked based on schema) */}
+            {/* Shipping Address */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-vendix-accent">
                 <MapPin className="h-4 w-4" />
@@ -191,18 +196,18 @@ export default function OrderDetailsModal({
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <CreditCard className="h-4 w-4 text-text-muted" />
-              <div className="text-[10px] uppercase font-bold text-text-muted tracking-wide">
+              <div className="text-[10px] uppercase font-bold text-text-muted tracking-wide text-left">
                 Payment Method
-                <p className="text-xs text-text-primary lowercase first-letter:uppercase font-black">
+                <p className="text-xs text-text-primary lowercase first-letter:uppercase font-black text-left">
                   Visa •••• 4242
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Truck className="h-4 w-4 text-text-muted" />
-              <div className="text-[10px] uppercase font-bold text-text-muted tracking-wide">
+              <div className="text-[10px] uppercase font-bold text-text-muted tracking-wide text-left">
                 Shipping Method
-                <p className="text-xs text-text-primary lowercase first-letter:uppercase font-black">
+                <p className="text-xs text-text-primary lowercase first-letter:uppercase font-black text-left">
                   Express Delivery (2-3 days)
                 </p>
               </div>
@@ -217,7 +222,7 @@ export default function OrderDetailsModal({
             </p>
           </div>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

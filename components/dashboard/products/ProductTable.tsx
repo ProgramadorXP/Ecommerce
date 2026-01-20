@@ -13,7 +13,17 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import IconButton from "@/components/common/IconButton";
-import { Product } from "./types";
+import { Product } from "@/components/dashboard/products/types";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 interface ProductTableProps {
   products: Product[];
@@ -28,42 +38,54 @@ export default function ProductTable({ products }: ProductTableProps) {
     return diffDays <= 7;
   };
 
+  const getStockStyles = (stock: number) => {
+    if (stock > 10) return "bg-success/10 text-success border-success/20";
+    if (stock > 0) return "bg-warning/10 text-warning border-warning/20";
+    return "bg-error/10 text-error border-error/20";
+  };
+
+  const getStockLabel = (stock: number) => {
+    if (stock > 10) return "In Stock";
+    if (stock > 0) return "Low Stock";
+    return "Out of Stock";
+  };
+
   return (
     <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse border-hidden">
-          <thead>
-            <tr className="border-b border-border bg-muted/30">
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+        <Table>
+          <TableHeader>
+            <TableRow className="border-b border-border bg-muted/30 hover:bg-muted/30">
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 <div className="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors">
                   Product
                   <ArrowUpDown className="h-3 w-3" />
                 </div>
-              </th>
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+              </TableHead>
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Price
-              </th>
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+              </TableHead>
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Popularity
-              </th>
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+              </TableHead>
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Stock
-              </th>
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+              </TableHead>
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Status
-              </th>
-              <th className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider text-right">
+              </TableHead>
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider text-left">
                 Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
             {products.map((product) => (
-              <tr
+              <TableRow
                 key={product.id}
-                className="group hover:bg-background/50 transition-colors"
+                className="group hover:bg-background/50 transition-colors border-border"
               >
-                <td className="px-6 py-4">
+                <TableCell className="px-6 py-4">
                   <div className="flex items-center gap-4">
                     <div className="relative h-14 w-14 rounded-xl overflow-hidden border border-border bg-muted shrink-0 shadow-sm">
                       <Image
@@ -100,8 +122,8 @@ export default function ProductTable({ products }: ProductTableProps) {
                       </div>
                     </div>
                   </div>
-                </td>
-                <td className="px-6 py-4">
+                </TableCell>
+                <TableCell className="px-6 py-4">
                   <div className="flex flex-col">
                     <span className="text-sm font-bold text-text-primary">
                       ${product.price.toFixed(2)}
@@ -112,8 +134,8 @@ export default function ProductTable({ products }: ProductTableProps) {
                       </span>
                     )}
                   </div>
-                </td>
-                <td className="px-6 py-4">
+                </TableCell>
+                <TableCell className="px-6 py-4">
                   <div className="flex items-center gap-3">
                     <div
                       className="flex items-center gap-1 group/fav cursor-help"
@@ -121,7 +143,12 @@ export default function ProductTable({ products }: ProductTableProps) {
                     >
                       <div className="p-1.5 rounded-lg bg-error/5 group-hover/fav:bg-error/10 transition-colors">
                         <Heart
-                          className={`h-3.5 w-3.5 ${product.favoritesCount > 200 ? "fill-error text-error" : "text-text-muted"}`}
+                          className={cn(
+                            "h-3.5 w-3.5 transition-colors",
+                            product.favoritesCount > 200
+                              ? "fill-error text-error"
+                              : "text-text-muted",
+                          )}
                         />
                       </div>
                       <span className="text-[11px] font-bold text-text-secondary">
@@ -140,8 +167,8 @@ export default function ProductTable({ products }: ProductTableProps) {
                       </span>
                     </div>
                   </div>
-                </td>
-                <td className="px-6 py-4">
+                </TableCell>
+                <TableCell className="px-6 py-4">
                   <div className="flex flex-col gap-1.5 w-24">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-text-primary">
@@ -153,39 +180,34 @@ export default function ProductTable({ products }: ProductTableProps) {
                     </div>
                     <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden border border-border/50">
                       <div
-                        className={`h-full rounded-full transition-all duration-1000 ${
+                        className={cn(
+                          "h-full rounded-full transition-all duration-1000",
                           product.stock > 10
                             ? "bg-success shadow-[0_0_8px_rgba(34,197,94,0.3)]"
                             : product.stock > 0
                               ? "bg-warning shadow-[0_0_8px_rgba(250,204,21,0.3)]"
-                              : "bg-error"
-                        }`}
+                              : "bg-error",
+                        )}
                         style={{
                           width: `${Math.min((product.stock / product.maxStock) * 100, 100)}%`,
                         }}
                       />
                     </div>
                   </div>
-                </td>
-                <td className="px-6 py-4">
-                  <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                      product.stock > 10
-                        ? "bg-success/10 text-success"
-                        : product.stock > 0
-                          ? "bg-warning/10 text-warning"
-                          : "bg-error/10 text-error"
-                    }`}
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <Badge
+                    variant="outline"
+                    className={cn(
+                      "font-black uppercase tracking-wider border",
+                      getStockStyles(product.stock),
+                    )}
                   >
-                    {product.stock > 10
-                      ? "In Stock"
-                      : product.stock > 0
-                        ? "Low Stock"
-                        : "Out of Stock"}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {getStockLabel(product.stock)}
+                  </Badge>
+                </TableCell>
+                <TableCell className="px-6 py-4">
+                  <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     <IconButton
                       icon={Edit2}
                       className="h-8 w-8 hover:text-primary hover:bg-primary/5"
@@ -202,11 +224,11 @@ export default function ProductTable({ products }: ProductTableProps) {
                       title="More"
                     />
                   </div>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
 
       {/* Pagination Section */}
@@ -225,11 +247,12 @@ export default function ProductTable({ products }: ProductTableProps) {
           {[1].map((page) => (
             <button
               key={page}
-              className={`h-8 w-8 flex items-center justify-center text-xs font-bold rounded-lg transition-all cursor-pointer ${
+              className={cn(
+                "h-8 w-8 flex items-center justify-center text-xs font-bold rounded-lg transition-all cursor-pointer",
                 page === 1
                   ? "bg-primary text-white shadow-md shadow-primary/20"
-                  : "hover:bg-white bg-card/50"
-              }`}
+                  : "hover:bg-white bg-card/50",
+              )}
             >
               {page}
             </button>
