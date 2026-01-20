@@ -3,7 +3,6 @@
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import Logo from "@/components/common/Logo";
-import SearchInput from "@/components/common/SearchInput";
 import IconButton from "@/components/common/IconButton";
 import UserProfile from "@/components/layout/UserProfile";
 import NotificationMenu from "@/components/layout/NotificationMenu";
@@ -16,9 +15,6 @@ export default function Header({ onMenuClick }: { onMenuClick: () => void }) {
       {/* Left Section */}
       <div className="flex items-center gap-4 flex-1">
         <Logo className="md:hidden" />
-        <div className="hidden md:block w-64 lg:w-80">
-          <SearchInput />
-        </div>
       </div>
 
       {/* Right Section */}

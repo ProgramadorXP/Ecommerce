@@ -1,6 +1,5 @@
 import NavLinks from "@/components/layout/NavLinks";
 import Logo from "@/components/common/Logo";
-import SearchInput from "@/components/common/SearchInput";
 import UserProfile from "@/components/layout/UserProfile";
 import clsx from "clsx";
 
@@ -31,11 +30,6 @@ export default function Sidebar({
           </li>
         </ul>
       </nav>
-
-      {/* Search Input */}
-      <div className="px-6 py-4 md:hidden border-t border-border/50">
-        <SearchInput />
-      </div>
 
       {/* Mobile User Profile */}
       <div className="p-4 border-t border-border md:hidden shrink-0 bg-card/50 backdrop-blur-sm">
