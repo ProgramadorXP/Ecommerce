@@ -1,6 +1,7 @@
 "use client";
 
 import { Star, MessageSquare } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const recentReviews = [
   {
@@ -31,15 +32,17 @@ const recentReviews = [
 
 export default function RecentReviews() {
   return (
-    <div className="p-6 bg-card border border-border rounded-2xl">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-bold text-text-primary">Latest Reviews</h2>
+    <Card className="bg-card border-border rounded-2xl shadow-sm h-fit">
+      <CardHeader className="flex flex-row items-center justify-between p-6">
+        <CardTitle className="text-lg font-bold text-text-primary">
+          Latest Reviews
+        </CardTitle>
         <div className="h-8 w-8 rounded-lg bg-secondary/10 flex items-center justify-center">
           <MessageSquare className="h-4 w-4 text-secondary" />
         </div>
-      </div>
+      </CardHeader>
 
-      <div className="space-y-6">
+      <CardContent className="p-6 pt-0 space-y-6">
         {recentReviews.map((review) => (
           <div
             key={review.id}
@@ -67,7 +70,7 @@ export default function RecentReviews() {
             </p>
           </div>
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

@@ -9,6 +9,7 @@ import {
   YAxis,
   CartesianGrid,
 } from "recharts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const data = [
   { name: "Jan", total: 1500 },
@@ -22,12 +23,12 @@ const data = [
 
 export default function RevenueChart() {
   return (
-    <div className="h-[350px] w-full p-6 bg-card border border-border rounded-2xl flex flex-col">
-      <div className="flex items-center justify-between mb-6 shrink-0">
+    <Card className="bg-card border-border rounded-2xl flex flex-col shadow-sm">
+      <CardHeader className="flex flex-row items-center justify-between p-6 shrink-0">
         <div>
-          <h2 className="text-lg font-bold text-text-primary">
+          <CardTitle className="text-lg font-bold text-text-primary">
             Revenue Overview
-          </h2>
+          </CardTitle>
           <p className="text-xs text-text-muted text-balance mt-1">
             Monthly revenue performance for the current year.
           </p>
@@ -40,68 +41,73 @@ export default function RevenueChart() {
             </span>
           </div>
         </div>
-      </div>
+      </CardHeader>
 
-      <div className="flex-1 w-full">
-        <ResponsiveContainer width="100%" height={200}>
-          <AreaChart
-            data={data}
-            margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-primary)"
-                  stopOpacity={0.5}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-primary)"
-                  stopOpacity={0}
-                />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              strokeDasharray="3 3"
-              vertical={false}
-              stroke="var(--color-border)"
-              opacity={0.5}
-            />
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 10, fill: "var(--color-muted-foreground)" }}
-              dy={10}
-            />
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 10, fill: "var(--color-muted-foreground)" }}
-              tickFormatter={(value) => `$${value}`}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "var(--color-card)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "12px",
-                fontSize: "12px",
-                boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
-              }}
-              itemStyle={{ color: "var(--color-primary)", fontWeight: "bold" }}
-            />
-            <Area
-              type="monotone"
-              dataKey="total"
-              stroke="var(--color-primary)"
-              strokeWidth={3}
-              fillOpacity={1}
-              fill="url(#colorTotal)"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
-    </div>
+      <CardContent className="p-6 pt-0 flex-1 w-full">
+        <div className="h-[200px] w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart
+              data={data}
+              margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="rgb(var(--primary))"
+                    stopOpacity={0.5}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="rgb(var(--primary))"
+                    stopOpacity={0}
+                  />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                strokeDasharray="3 3"
+                vertical={false}
+                stroke="rgb(var(--border))"
+                opacity={0.5}
+              />
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 10, fill: "rgb(var(--muted-foreground))" }}
+                dy={10}
+              />
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 10, fill: "rgb(var(--muted-foreground))" }}
+                tickFormatter={(value) => `$${value}`}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "rgb(var(--card))",
+                  border: "1px solid rgb(var(--border))",
+                  borderRadius: "12px",
+                  fontSize: "12px",
+                  boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+                }}
+                itemStyle={{
+                  color: "rgb(var(--primary))",
+                  fontWeight: "bold",
+                }}
+              />
+              <Area
+                type="monotone"
+                dataKey="total"
+                stroke="rgb(var(--primary))"
+                strokeWidth={3}
+                fillOpacity={1}
+                fill="url(#colorTotal)"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

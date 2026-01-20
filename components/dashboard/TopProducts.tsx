@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowUpRight, MoreVertical } from "lucide-react";
 import IconButton from "@/components/common/IconButton";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const topProducts = [
   {
@@ -36,17 +37,19 @@ const topProducts = [
 
 export default function TopProducts() {
   return (
-    <div className="p-6 bg-card border border-border rounded-2xl flex flex-col">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-bold text-text-primary">Top Products</h2>
+    <Card className="bg-card border-border rounded-2xl shadow-sm flex flex-col h-fit">
+      <CardHeader className="flex flex-row items-center justify-between p-6">
+        <CardTitle className="text-lg font-bold text-text-primary">
+          Top Products
+        </CardTitle>
         <IconButton icon={MoreVertical} className="h-8 w-8" />
-      </div>
+      </CardHeader>
 
-      <div className="space-y-4">
+      <CardContent className="p-6 pt-0 space-y-4">
         {topProducts.map((product) => (
           <div
             key={product.id}
-            className="group flex items-center justify-between p-3 rounded-xl hover:bg-background transition-all border border-transparent hover:border-border"
+            className="group flex items-center justify-between p-3 rounded-xl hover:bg-background transition-all border border-transparent hover:border-border cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <div className="relative h-12 w-12 rounded-lg overflow-hidden border border-border bg-muted">
@@ -77,12 +80,12 @@ export default function TopProducts() {
             </div>
           </div>
         ))}
-      </div>
 
-      <button className="mt-6 flex items-center justify-center gap-2 w-full py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all border border-primary/20">
-        Inventory Report
-        <ArrowUpRight className="h-3 w-3" />
-      </button>
-    </div>
+        <button className="mt-2 flex items-center justify-center gap-2 w-full py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all border border-primary/20 cursor-pointer">
+          Inventory Report
+          <ArrowUpRight className="h-3 w-3" />
+        </button>
+      </CardContent>
+    </Card>
   );
 }
