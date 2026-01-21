@@ -16,6 +16,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -80,10 +81,10 @@ export default function OrderDetailsModal({
                 {order.status}
               </Badge>
             </div>
-            <p className="text-xs text-text-muted flex items-center gap-1.5">
+            <DialogDescription className="text-xs text-text-muted flex items-center gap-1.5">
               <Calendar className="h-3 w-3" />
               Placed on {formatDate(order.createdAt)}
-            </p>
+            </DialogDescription>
           </div>
         </DialogHeader>
 

@@ -5,7 +5,7 @@ export const MOCK_CUSTOMERS: Customer[] = [
     id: 1,
     username: "jdoe",
     email: "john.doe@example.com",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 30).toISOString(),
+    createdAt: "2025-12-21T10:00:00.000Z",
     role: "Customer",
     details: {
       firstName: "John",
@@ -17,16 +17,14 @@ export const MOCK_CUSTOMERS: Customer[] = [
     stats: {
       totalOrders: 12,
       totalSpent: 1250.5,
-      lastOrderDate: new Date(
-        Date.now() - 1000 * 60 * 60 * 24 * 2,
-      ).toISOString(),
+      lastOrderDate: "2026-01-18T15:00:00.000Z",
     },
   },
   {
     id: 2,
     username: "asmith",
     email: "alice.smith@example.com",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 15).toISOString(),
+    createdAt: "2026-01-05T10:00:00.000Z",
     role: "Customer",
     details: {
       firstName: "Alice",
@@ -38,16 +36,14 @@ export const MOCK_CUSTOMERS: Customer[] = [
     stats: {
       totalOrders: 5,
       totalSpent: 450.0,
-      lastOrderDate: new Date(
-        Date.now() - 1000 * 60 * 60 * 24 * 5,
-      ).toISOString(),
+      lastOrderDate: "2026-01-15T12:00:00.000Z",
     },
   },
   {
     id: 3,
     username: "mbrown",
     email: "m.brown@example.com",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(),
+    createdAt: "2026-01-18T09:00:00.000Z",
     role: "Customer",
     details: {
       firstName: "Michael",
@@ -58,16 +54,14 @@ export const MOCK_CUSTOMERS: Customer[] = [
     stats: {
       totalOrders: 1,
       totalSpent: 89.99,
-      lastOrderDate: new Date(
-        Date.now() - 1000 * 60 * 60 * 24 * 1,
-      ).toISOString(),
+      lastOrderDate: "2026-01-19T14:00:00.000Z",
     },
   },
   {
     id: 4,
     username: "ewatson",
     email: "emma.watson@example.com",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 60).toISOString(),
+    createdAt: "2025-11-21T10:00:00.000Z",
     role: "VIP",
     details: {
       firstName: "Emma",
@@ -79,14 +73,14 @@ export const MOCK_CUSTOMERS: Customer[] = [
     stats: {
       totalOrders: 28,
       totalSpent: 4500.0,
-      lastOrderDate: new Date(Date.now() - 1000 * 60 * 60 * 10).toISOString(),
+      lastOrderDate: "2026-01-20T11:00:00.000Z",
     },
   },
   {
     id: 5,
     username: "rfox",
     email: "robert.fox@example.com",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 120).toISOString(),
+    createdAt: "2025-09-22T10:00:00.000Z",
     role: "Customer",
     details: {
       firstName: "Robert",

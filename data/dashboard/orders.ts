@@ -8,8 +8,8 @@ export const MOCK_ORDERS: Order[] = [
     userEmail: "john@example.com",
     totalAmount: 319.98,
     status: "paid",
-    createdAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(), // 30 mins ago
-    updatedAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
+    createdAt: "2026-01-20T20:00:00.000Z",
+    updatedAt: "2026-01-20T20:00:00.000Z",
     items: [
       {
         id: 1,
@@ -29,8 +29,8 @@ export const MOCK_ORDERS: Order[] = [
     userEmail: "sarah@smith.com",
     totalAmount: 45.0,
     status: "pending",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(), // 2 hours ago
-    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
+    createdAt: "2026-01-20T18:30:00.000Z",
+    updatedAt: "2026-01-20T18:30:00.000Z",
     items: [
       {
         id: 2,
@@ -50,8 +50,8 @@ export const MOCK_ORDERS: Order[] = [
     userEmail: "m.brown@dev.com",
     totalAmount: 124.99,
     status: "shipped",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(), // 5 hours ago
-    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
+    createdAt: "2026-01-20T15:00:00.000Z",
+    updatedAt: "2026-01-20T15:00:00.000Z",
     items: [
       {
         id: 3,
@@ -80,8 +80,8 @@ export const MOCK_ORDERS: Order[] = [
     userEmail: "emma@star.com",
     totalAmount: 299.0,
     status: "delivered",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(), // Yesterday
-    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+    createdAt: "2026-01-19T20:30:00.000Z",
+    updatedAt: "2026-01-19T20:30:00.000Z",
     items: [
       {
         id: 5,
@@ -101,8 +101,8 @@ export const MOCK_ORDERS: Order[] = [
     userEmail: "robert@fox.com",
     totalAmount: 159.99,
     status: "cancelled",
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(), // 2 days ago
-    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
+    createdAt: "2026-01-18T20:30:00.000Z",
+    updatedAt: "2026-01-18T20:30:00.000Z",
     items: [
       {
         id: 6,

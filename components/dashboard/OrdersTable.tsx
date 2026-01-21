@@ -103,8 +103,8 @@ export default function OrdersTable() {
         </Table>
       </CardContent>
 
-      <div className="p-6 pt-0">
-        <button className="w-full mt-6 py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all cursor-pointer">
+      <div className="m-auto">
+        <button className="w-full mt-6 p-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all cursor-pointer">
           View All Transaction History
         </button>
       </div>
