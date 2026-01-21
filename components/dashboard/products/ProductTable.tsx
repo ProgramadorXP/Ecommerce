@@ -241,23 +241,23 @@ export default function ProductTable({ products }: ProductTableProps) {
           products
         </p>
         <div className="flex items-center gap-2">
-          <button className="p-2 border border-border rounded-lg hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer bg-card/50">
+          <button className="p-2 border border-border rounded-lg hover:border-primary/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer bg-card/50">
             <ChevronLeft className="h-4 w-4" />
           </button>
           {[1].map((page) => (
             <button
               key={page}
               className={cn(
-                "h-8 w-8 flex items-center justify-center text-xs font-bold rounded-lg transition-all cursor-pointer",
+                "h-8 w-8 flex items-center justify-center text-xs font-bold rounded-lg transition-all cursor-pointer border",
                 page === 1
-                  ? "bg-primary text-white shadow-md shadow-primary/20"
-                  : "hover:bg-white bg-card/50",
+                  ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                  : "border-border hover:border-primary/50 bg-card/50",
               )}
             >
               {page}
             </button>
           ))}
-          <button className="p-2 border border-border rounded-lg hover:bg-white transition-colors cursor-pointer bg-card/50">
+          <button className="p-2 border border-border rounded-lg hover:border-primary/50 transition-colors cursor-pointer bg-card/50">
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
