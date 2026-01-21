@@ -12,22 +12,22 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Welcome Section */}
-      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-text-primary">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-1">
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-text-primary">
             Dashboard Overview
           </h1>
-          <p className="text-sm text-text-muted">
+          <p className="text-xs sm:text-sm text-text-muted">
             Welcome back! Here&apos;s what&apos;s happening with your store
             today.
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-card border border-border rounded-lg text-xs font-medium text-text-secondary">
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-2 px-3 py-2 bg-card border border-border rounded-xl text-xs font-medium text-text-secondary">
             <Calendar className="h-3.5 w-3.5" />
             Last 30 Days
           </div>
-          <button className="px-4 py-2 bg-primary text-white text-sm font-bold rounded-lg hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center gap-2 cursor-pointer border-none">
+          <button className="flex-1 sm:flex-none px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 cursor-pointer border-none">
             Export Report
             <ArrowUpRight className="h-4 w-4" />
           </button>
@@ -42,7 +42,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Main Content Area */}
-      <div className="grid gap-6 lg:grid-cols-3 items-start">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start">
         {/* Left Column: Chart & Table */}
         <div className="lg:col-span-2 space-y-6">
           <RevenueChart />

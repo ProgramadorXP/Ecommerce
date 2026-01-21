@@ -23,11 +23,11 @@ const activeDiscounts = [
 
 export default function DiscountStatus() {
   return (
-    <Card className="p-6 bg-card border-border rounded-2xl bg-linear-to-br from-card to-secondary/5 shadow-sm h-fit">
+    <Card className="p-4 sm:p-6 bg-card border-border rounded-2xl bg-linear-to-br from-card to-secondary/5 shadow-sm h-fit">
       <CardContent className="p-0">
-        <div className="flex items-center gap-2 mb-6 text-secondary">
-          <Tag className="h-5 w-5" />
-          <h2 className="text-lg font-bold">Active Promotions</h2>
+        <div className="flex items-center gap-2 mb-4 sm:mb-6 text-secondary">
+          <Tag className="h-4 w-4 sm:h-5 sm:w-5" />
+          <h2 className="text-base sm:text-lg font-bold">Active Promotions</h2>
         </div>
 
         <div className="space-y-4">

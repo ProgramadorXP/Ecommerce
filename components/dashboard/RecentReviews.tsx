@@ -33,16 +33,16 @@ const recentReviews = [
 export default function RecentReviews() {
   return (
     <Card className="bg-card border-border rounded-2xl shadow-sm h-fit">
-      <CardHeader className="flex flex-row items-center justify-between p-6">
-        <CardTitle className="text-lg font-bold text-text-primary">
+      <CardHeader className="flex flex-row items-center justify-between px-4 sm:px-6">
+        <CardTitle className="text-base sm:text-lg font-bold text-text-primary">
           Latest Reviews
         </CardTitle>
-        <div className="h-8 w-8 rounded-lg bg-secondary/10 flex items-center justify-center">
-          <MessageSquare className="h-4 w-4 text-secondary" />
+        <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+          <MessageSquare className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-secondary" />
         </div>
       </CardHeader>
 
-      <CardContent className="p-6 pt-0 space-y-6">
+      <CardContent className="px-4 sm:px-6 space-y-5 sm:space-y-6">
         {recentReviews.map((review) => (
           <div
             key={review.id}

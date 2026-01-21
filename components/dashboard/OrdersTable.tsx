@@ -33,7 +33,7 @@ export default function OrdersTable() {
 
   return (
     <Card className="bg-card border-border rounded-2xl overflow-hidden shadow-sm">
-      <CardHeader className="flex flex-row items-center justify-between p-6">
+      <CardHeader className="flex flex-row items-center justify-between px-6">
         <CardTitle className="text-lg font-bold text-text-primary">
           Recent Orders
         </CardTitle>
@@ -47,7 +47,7 @@ export default function OrdersTable() {
               <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Order ID
               </TableHead>
-              <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider">
+              <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider hidden sm:table-cell">
                 Customer
               </TableHead>
               <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider">
@@ -56,7 +56,7 @@ export default function OrdersTable() {
               <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Status
               </TableHead>
-              <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider text-right">
+              <TableHead className="px-6 pb-4 text-xs font-bold text-text-muted uppercase tracking-wider text-left">
                 Date
               </TableHead>
             </TableRow>
@@ -70,12 +70,12 @@ export default function OrdersTable() {
                 <TableCell className="px-6 py-4 text-sm font-bold text-primary">
                   {order.id}
                 </TableCell>
-                <TableCell className="px-6 py-4">
+                <TableCell className="px-6 py-4 hidden sm:table-cell">
                   <div className="flex flex-col">
                     <span className="text-sm font-medium text-text-primary">
                       {order.customer}
                     </span>
-                    <span className="text-[10px] text-text-muted">
+                    <span className="text-[10px] text-text-muted hidden md:block">
                       {order.email}
                     </span>
                   </div>
@@ -94,7 +94,7 @@ export default function OrdersTable() {
                     {order.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="px-6 py-4 text-xs text-text-muted text-right">
+                <TableCell className="px-6 py-4 text-xs text-text-muted text-left">
                   {order.date}
                 </TableCell>
               </TableRow>
