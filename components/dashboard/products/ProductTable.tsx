@@ -74,7 +74,7 @@ export default function ProductTable({ products }: ProductTableProps) {
               <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Status
               </TableHead>
-              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider text-left">
+              <TableHead className="px-6 py-4 text-xs font-bold text-text-muted uppercase tracking-wider">
                 Actions
               </TableHead>
             </TableRow>
