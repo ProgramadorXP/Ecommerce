@@ -5,7 +5,6 @@ import {
   User,
   Bell,
   Shield,
-  CreditCard,
   Store,
   Save,
   Mail,
@@ -28,7 +27,6 @@ export default function SettingsPage() {
     { id: "account", label: "My Account", icon: User },
     { id: "notifications", label: "Notifications", icon: Bell },
     { id: "security", label: "Security", icon: Shield },
-    { id: "billing", label: "Billing", icon: CreditCard },
   ];
 
   return (

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-const font = Roboto({
+const font = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Ecommerce",
-  description: "Ecommerce app",
+  title: "Vendix | Premium E-commerce Dashboard",
+  description: "Advanced management system for modern e-commerce stores.",
 };
 
 export default function RootLayout({
