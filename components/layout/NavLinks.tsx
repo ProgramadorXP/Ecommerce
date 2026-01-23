@@ -1,7 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Home, ShoppingCart, Box, Users, ChartLine } from "lucide-react";
+import {
+  Home,
+  ShoppingCart,
+  Box,
+  Users,
+  ChartLine,
+  MessageSquare,
+  Layers,
+  Settings,
+  Tag,
+} from "lucide-react";
 import NavLinkItem from "@/components/layout/NavLinkItem";
 
 const links = [
@@ -26,9 +36,29 @@ const links = [
     text: "Customers",
   },
   {
+    href: "/dashboard/discounts",
+    icon: Tag,
+    text: "Discounts",
+  },
+  {
+    href: "/dashboard/reviews",
+    icon: MessageSquare,
+    text: "Reviews",
+  },
+  {
+    href: "/dashboard/categories",
+    icon: Layers,
+    text: "Categories",
+  },
+  {
     href: "/dashboard/analytics",
     icon: ChartLine,
     text: "Analytics",
+  },
+  {
+    href: "/dashboard/settings",
+    icon: Settings,
+    text: "Settings",
   },
 ];
 

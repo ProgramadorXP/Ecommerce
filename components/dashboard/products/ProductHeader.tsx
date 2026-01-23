@@ -1,6 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 export default function ProductHeader() {
   return (
@@ -14,10 +15,12 @@ export default function ProductHeader() {
         </p>
       </div>
       <div className="flex items-center gap-2">
-        <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
-          <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
-          Add New Product
-        </button>
+        <Link href="/dashboard/products/new">
+          <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
+            <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
+            Add New Product
+          </button>
+        </Link>
       </div>
     </div>
   );

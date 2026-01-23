@@ -12,6 +12,7 @@ import {
   Briefcase,
   Clock,
   ExternalLink,
+  LucideIcon,
 } from "lucide-react";
 import {
   Card,
@@ -303,7 +304,7 @@ function InfoItem({
 }: {
   label: string;
   value: string | null;
-  icon?: any;
+  icon?: LucideIcon;
   badge?: boolean;
 }) {
   return (
@@ -342,7 +343,7 @@ function StatMini({
 }: {
   label: string;
   value: number;
-  icon: any;
+  icon: LucideIcon;
   color: string;
 }) {
   return (
