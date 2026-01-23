@@ -8,9 +8,9 @@ import {
   CreditCard,
   Store,
   Save,
-  MapPin,
   Mail,
   Camera,
+  LucideIcon,
 } from "lucide-react";
 import {
   Card,
@@ -283,7 +283,7 @@ function SettingInput({
   label: string;
   placeholder?: string;
   type?: string;
-  icon?: any;
+  icon?: LucideIcon;
 }) {
   return (
     <div className="space-y-2">
