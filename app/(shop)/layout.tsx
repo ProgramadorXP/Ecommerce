@@ -21,6 +21,12 @@ export default function ShopLayout({
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
             className="text-sm font-bold text-text-muted hover:text-primary transition-colors"
+            href="/login"
+          >
+            Sign In
+          </Link>
+          <Link
+            className="text-sm font-bold text-text-muted hover:text-primary transition-colors"
             href="/dashboard"
           >
             Dashboard
