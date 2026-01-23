@@ -1,6 +1,7 @@
 "use client";
 
 import { Layers, Plus } from "lucide-react";
+import Link from "next/link";
 
 export default function CategoryHeader() {
   return (
@@ -18,10 +19,12 @@ export default function CategoryHeader() {
           </p>
         </div>
       </div>
-      <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
-        <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
-        New Category
-      </button>
+      <Link href="/dashboard/categories/new">
+        <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
+          <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
+          New Category
+        </button>
+      </Link>
     </div>
   );
 }

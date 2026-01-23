@@ -8,8 +8,10 @@ import {
   ChevronRight,
   ChevronLeft,
   Calendar,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import IconButton from "@/components/common/IconButton";
 import { Order } from "@/components/dashboard/orders/types";
 import {
@@ -91,9 +93,11 @@ export default function OrderTable({ orders, onViewDetails }: OrderTableProps) {
               className="group hover:bg-background/50 transition-colors border-b border-border/50 last:border-0"
             >
               <TableCell className="px-6 py-4">
-                <span className="text-sm font-black text-primary">
-                  #ORD-{order.id}
-                </span>
+                <Link href={`/dashboard/orders/${order.id}`}>
+                  <span className="text-sm font-black text-primary hover:underline cursor-pointer">
+                    #ORD-{order.id}
+                  </span>
+                </Link>
               </TableCell>
               <TableCell className="px-6 py-4">
                 <div className="flex items-center gap-3">
@@ -174,6 +178,13 @@ export default function OrderTable({ orders, onViewDetails }: OrderTableProps) {
                     className="h-8 w-8 hover:text-vendix-accent hover:bg-vendix-accent/5"
                     title="Update Shipping"
                   />
+                  <Link href={`/dashboard/orders/${order.id}`}>
+                    <IconButton
+                      icon={ExternalLink}
+                      className="h-8 w-8 hover:text-success hover:bg-success/5"
+                      title="Manage Order"
+                    />
+                  </Link>
                   <IconButton
                     icon={FileText}
                     className="h-8 w-8 hover:text-secondary hover:bg-secondary/5"

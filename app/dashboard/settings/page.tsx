@@ -1,7 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { User, Bell, Shield, CreditCard, Store, Save } from "lucide-react";
+import {
+  User,
+  Bell,
+  Shield,
+  CreditCard,
+  Store,
+  Save,
+  MapPin,
+  Mail,
+  Camera,
+} from "lucide-react";
 import {
   Card,
   CardContent,
@@ -60,6 +70,7 @@ export default function SettingsPage() {
         {/* Content Area */}
         <div className="lg:col-span-3 space-y-6">
           {activeTab === "general" && <GeneralSettings />}
+          {activeTab === "account" && <AccountSettings />}
           {activeTab === "notifications" && <NotificationSettings />}
           {activeTab === "security" && <SecuritySettings />}
           {/* Add more as needed */}
@@ -176,25 +187,119 @@ function SecuritySettings() {
   );
 }
 
+function AccountSettings() {
+  return (
+    <div className="space-y-6">
+      <Card className="border-border rounded-2xl bg-card shadow-sm ring-1 ring-border border-none">
+        <CardHeader className="px-6 border-b border-border/50">
+          <CardTitle className="text-lg font-bold">
+            Personal Information
+          </CardTitle>
+          <CardDescription className="text-xs">
+            Manage your personal profile and contact details.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="p-6 space-y-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 pb-6 border-b border-border/50">
+            <div className="relative group">
+              <div className="h-24 w-24 rounded-3xl bg-primary/10 flex items-center justify-center border-2 border-dashed border-primary/20 overflow-hidden relative">
+                <User className="h-10 w-10 text-primary" />
+              </div>
+              <button className="absolute -bottom-2 -right-2 p-2 bg-text-primary text-background rounded-xl shadow-lg hover:scale-110 transition-transform cursor-pointer">
+                <Camera className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="space-y-1 text-center md:text-left">
+              <h4 className="text-sm font-black text-text-primary uppercase tracking-tight">
+                Profile Picture
+              </h4>
+              <p className="text-xs text-text-muted">
+                JPG, GIF or PNG. Max size of 800K
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SettingInput label="Full Name" placeholder="Admin Jona" />
+            <SettingInput label="Display Name" placeholder="jona_admin" />
+            <SettingInput
+              label="Email Address"
+              placeholder="jona@vendix.com"
+              icon={Mail}
+            />
+            <SettingInput
+              label="Phone Number"
+              placeholder="+1 (555) 000-0000"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest px-1">
+              Biography
+            </label>
+            <textarea
+              rows={3}
+              placeholder="Store Administrator and Lead Developer..."
+              className="w-full px-4 py-2.5 bg-muted/20 border border-border rounded-xl text-xs font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+            />
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="border-border rounded-2xl bg-card shadow-sm ring-1 ring-border border-none">
+        <CardHeader className="px-6 border-b border-border/50">
+          <CardTitle className="text-lg font-bold">Office Address</CardTitle>
+        </CardHeader>
+        <CardContent className="p-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SettingInput label="Country" placeholder="United States" />
+            <SettingInput label="City" placeholder="San Francisco" />
+            <div className="md:col-span-2">
+              <SettingInput
+                label="Street Address"
+                placeholder="123 Admin Way, Suite 100"
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="pt-2 flex justify-end">
+        <button className="flex items-center gap-2 px-8 py-3 bg-primary text-white text-xs font-black rounded-xl hover:opacity-90 transition-all cursor-pointer shadow-lg shadow-primary/20 border-none uppercase tracking-widest">
+          <Save className="h-4 w-4" />
+          Update Account
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function SettingInput({
   label,
   placeholder,
   type = "text",
+  icon: Icon,
 }: {
   label: string;
   placeholder?: string;
   type?: string;
+  icon?: any;
 }) {
   return (
     <div className="space-y-2">
       <label className="text-[10px] font-bold text-text-muted uppercase tracking-widest px-1">
         {label}
       </label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        className="w-full px-4 py-2.5 bg-muted/20 border border-border rounded-xl text-xs font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-text-muted/50"
-      />
+      <div className="relative">
+        {Icon && (
+          <Icon className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+        )}
+        <input
+          type={type}
+          placeholder={placeholder}
+          className={`w-full ${Icon ? "pl-11" : "px-4"} py-2.5 bg-muted/20 border border-border rounded-xl text-xs font-semibold focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-text-muted/50`}
+        />
+      </div>
     </div>
   );
 }

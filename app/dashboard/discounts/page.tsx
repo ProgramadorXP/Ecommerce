@@ -11,6 +11,7 @@ import {
   Copy,
   Ticket,
 } from "lucide-react";
+import Link from "next/link";
 import IconButton from "@/components/common/IconButton";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -75,10 +76,12 @@ export default function DiscountsPage() {
             </p>
           </div>
         </div>
-        <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
-          <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
-          Create Discount
-        </button>
+        <Link href="/dashboard/discounts/new">
+          <button className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all shadow-lg shadow-primary/20 border-none cursor-pointer group">
+            <Plus className="h-4 w-4 group-hover:rotate-90 transition-transform" />
+            Create Discount
+          </button>
+        </Link>
       </div>
 
       {/* Stats Summary */}

@@ -11,6 +11,9 @@ import {
   Layers,
   Settings,
   Tag,
+  Shield,
+  History as HistoryIcon,
+  Palette,
 } from "lucide-react";
 import NavLinkItem from "@/components/layout/NavLinkItem";
 
@@ -36,6 +39,11 @@ const links = [
     text: "Customers",
   },
   {
+    href: "/dashboard/staff",
+    icon: Shield,
+    text: "Staff",
+  },
+  {
     href: "/dashboard/discounts",
     icon: Tag,
     text: "Discounts",
@@ -49,6 +57,16 @@ const links = [
     href: "/dashboard/categories",
     icon: Layers,
     text: "Categories",
+  },
+  {
+    href: "/dashboard/activity",
+    icon: HistoryIcon,
+    text: "Activity",
+  },
+  {
+    href: "/dashboard/appearance",
+    icon: Palette,
+    text: "Appearance",
   },
   {
     href: "/dashboard/analytics",
@@ -72,14 +90,15 @@ export default function NavLinks({
   return (
     <>
       {links.map((link) => (
-        <NavLinkItem
-          key={link.text}
-          href={link.href}
-          icon={link.icon}
-          text={link.text}
-          isActive={pathname === link.href}
-          onClick={onLinkClick}
-        />
+        <li key={link.text} className="list-none">
+          <NavLinkItem
+            href={link.href}
+            icon={link.icon}
+            text={link.text}
+            isActive={pathname === link.href}
+            onClick={onLinkClick}
+          />
+        </li>
       ))}
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { MoreVertical } from "lucide-react";
+import Link from "next/link";
 import IconButton from "@/components/common/IconButton";
 import {
   Table,
@@ -68,7 +69,12 @@ export default function OrdersTable() {
                 className="group hover:bg-background/50 transition-colors border-border"
               >
                 <TableCell className="px-6 py-4 text-sm font-bold text-primary">
-                  {order.id}
+                  <Link
+                    href={`/dashboard/orders/${order.id.replace("#", "")}`}
+                    className="hover:underline"
+                  >
+                    {order.id}
+                  </Link>
                 </TableCell>
                 <TableCell className="px-6 py-4 hidden sm:table-cell">
                   <div className="flex flex-col">
@@ -104,9 +110,11 @@ export default function OrdersTable() {
       </CardContent>
 
       <div className="m-auto">
-        <button className="w-full mt-6 p-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all cursor-pointer">
-          View All Transaction History
-        </button>
+        <Link href="/dashboard/orders">
+          <button className="w-full mt-6 p-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-all cursor-pointer">
+            View All Transaction History
+          </button>
+        </Link>
       </div>
     </Card>
   );

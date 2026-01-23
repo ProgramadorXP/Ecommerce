@@ -5,7 +5,6 @@ import {
   MoreVertical,
   CheckCircle2,
   XCircle,
-  Flag,
   MessageSquare,
 } from "lucide-react";
 import Image from "next/image";
@@ -90,6 +89,7 @@ export default function ReviewTable({ reviews }: ReviewTableProps) {
                         src={review.userImage}
                         alt={review.userName}
                         fill
+                        sizes="48px"
                         className="object-cover"
                       />
                     </div>
@@ -115,6 +115,7 @@ export default function ReviewTable({ reviews }: ReviewTableProps) {
                         src={review.productImage}
                         alt={review.productName}
                         fill
+                        sizes="48px"
                         className="object-cover"
                       />
                     </div>

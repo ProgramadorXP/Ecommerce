@@ -10,6 +10,7 @@ import {
 import IconButton from "@/components/common/IconButton";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface Category {
   id: number;
@@ -100,11 +101,13 @@ export default function CategoryTable({ categories }: CategoryTableProps) {
                 </td>
                 <td className="px-6 py-5">
                   <div className="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <IconButton
-                      icon={Edit2}
-                      className="h-8 w-8 hover:text-primary hover:bg-primary/5"
-                      title="Edit"
-                    />
+                    <Link href={`/dashboard/categories/${category.id}`}>
+                      <IconButton
+                        icon={Edit2}
+                        className="h-8 w-8 hover:text-primary hover:bg-primary/5"
+                        title="Edit"
+                      />
+                    </Link>
                     <IconButton
                       icon={ExternalLink}
                       className="h-8 w-8 hover:text-secondary hover:bg-secondary/5"
